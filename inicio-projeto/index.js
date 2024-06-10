@@ -12,7 +12,7 @@ function imprimirMenu(){
     mensagem += "5. Sair\n"
     mensagem += "-------------------------------------------"
     let opcao = Number(prompt(mensagem))
-    return opcao
+    return opcao // 
 }
 
 //1 >> Cadrastrando pessoas - nova função para coletar os dados do usuario
@@ -23,12 +23,12 @@ function cadastroUsuario() {
     const tipoSanguineo = prompt("Digite seu tipo sanguíneo: ").toUpperCase()
     const dataDoacao = prompt("Digite a data de sua última doação dd/mm/aaaa: ")
     
-    usuarios.push({ nome, idade, peso, tipoSanguineo, dataDoacao })
-    alert(`Doador cadrastado com sucesso! \n Nome: ${nome}\nIdade: ${idade} anos\nPeso: ${peso} kg\nTipo Sanguíneo: ${tipoSanguineo}\nData da última doação: ${dataDoacao}`)
+    usuarios.push({ nome, idade, peso, tipoSanguineo, dataDoacao }) // o comando PUSH coloca os itens dentro do objeto
+    alert(`Doador cadastrado com sucesso! \n -----------------------------------\n Nome: ${nome}\nIdade: ${idade} anos\nPeso: ${peso} kg\nTipo Sanguíneo: ${tipoSanguineo}\nData da última doação: ${dataDoacao}`)
 }
 
 //2 >> Listando doadores - apresenta uma lista com os usuarios já registrados 
-function listarDoadores(){
+function listarDoadores(){ // nova array
     let mensagem = ""
     mensagem += "!! LISTAGEM DE DOADORES !! \n"
     mensagem += "----------------------------------------------------------------- \n"
@@ -44,16 +44,16 @@ function listarDoadores(){
 
 //4 >> Buscar por tipo sanguineo (TS)
 function buscarDoadorTS() { // busca doadores da array usuario que tem o tipo sanguinio digitado pelo usuario
-    if (usuarios.length === 0) {
+    if (usuarios.length === 0) { // if = se determinado função fo true ele executa, caso contrario não
         alert("Nenhum doador cadastrado.")
-        return;
+        return; // 
     }
 
     const tipoSanguineo = prompt("Digite o tipo de sangue que deseja buscar:").toUpperCase() // toUpperCase imprime o caracter digitado em maisculo
     let mensagem = `Lista de doadores com tipo sanguíneo ${tipoSanguineo}:\n`
     let existe = false //Foi utilizado de uma nova variavel para caso o usuario digite um tipo de sangue que ainda não foi cadastrado
 
-    for (let doador of usuarios) {
+    for (let doador of usuarios) { // let of percorre os elementos dentro de array
         if (doador.tipoSanguineo === tipoSanguineo) {
             mensagem += `${doador.nome} | ${doador.idade} | ${doador.peso} kg | ${doador.tipoSanguineo} | ${doador.dataDoacao}\n`
             existe = true
